@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT-Harvard Research Network</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <h1 class="header-title">MIT-Harvard Research Network</h1>
+                <div class="dataset-selector">
+                    <label for="dataset-select">Dataset:</label>
+                    <select id="dataset-select">
+                        <option value="harvard_core">Harvard Core</option>
+                        <option value="harvard_extended">Harvard Extended</option>
+                        <option value="mit_core">MIT Core</option>
+                        <option value="mit_extended">MIT Extended</option>
+                    </select>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="stats" id="stats">
+                    <span class="stat"><span class="stat-value" id="node-count">-</span> researchers</span>
+                    <span class="stat"><span class="stat-value" id="edge-count">-</span> collaborations</span>
+                    <span class="stat" id="visible-stats">
+                        <span class="stat-value" id="visible-node-count">-</span> visible
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-container">
+            <!-- Left Sidebar - Filters -->
+            <aside class="sidebar sidebar-left" id="filter-sidebar">
+                <div class="sidebar-header">
+                    <h2>Filters</h2>
+                    <button class="btn-text" id="reset-filters">Reset</button>
+                </div>
+
+                <!-- Search -->
+                <div class="filter-section">
+                    <label class="filter-label">Search</label>
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search by name..." autocomplete="off">
+                        <div class="search-results" id="search-results"></div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <label class="filter-label">Categories</label>
+                        <button class="btn-text btn-small" id="toggle-categories">All</button>
+                    </div>
+                    <div class="checkbox-list" id="category-filters"></div>
+                </div>
+
+                <!-- Schools -->
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <label class="filter-label">Schools</label>
+                        <button class="btn-text btn-small" id="toggle-schools">All</button>
+                    </div>
+                    <div class="checkbox-list scrollable" id="school-filters"></div>
+                </div>
+
+                <!-- Campus -->
+                <div class="filter-section">
+                    <div class="filter-header">
+                        <label class="filter-label">Campus</label>
+                        <button class="btn-text btn-small" id="toggle-campuses">All</button>
+                    </div>
+                    <div class="checkbox-list" id="campus-filters"></div>
+                </div>
+
+                <!-- Paper Count -->
+                <div class="filter-section">
+                    <label class="filter-label">
+                        Min Papers: <span id="paper-count-value">0</span>
+                    </label>
+                    <input type="range" id="paper-count-slider" min="0" max="100" value="0">
+                </div>
+
+                <!-- Connection Count -->
+                <div class="filter-section">
+                    <label class="filter-label">
+                        Min Connections: <span id="connection-count-value">0</span>
+                    </label>
+                    <input type="range" id="connection-count-slider" min="0" max="100" value="0">
+                </div>
+            </aside>
+
+            <!-- Canvas Container -->
+            <div class="canvas-container" id="canvas-container">
+                <canvas id="network-canvas"></canvas>
+
+                <!-- Tooltip -->
+                <div class="tooltip" id="tooltip">
+                    <div class="tooltip-name"></div>
+                    <div class="tooltip-department"></div>
+                    <div class="tooltip-stats"></div>
+                </div>
+
+                <!-- Loading Overlay -->
+                <div class="loading-overlay" id="loading-overlay">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">Loading network...</div>
+                </div>
+
+                <!-- Zoom Controls -->
+                <div class="zoom-controls">
+                    <button class="zoom-btn" id="zoom-in" title="Zoom In">+</button>
+                    <button class="zoom-btn" id="zoom-out" title="Zoom Out">−</button>
+                    <button class="zoom-btn" id="zoom-reset" title="Reset View">⟲</button>
+                </div>
+            </div>
+
+            <!-- Right Sidebar - Details -->
+            <aside class="sidebar sidebar-right" id="detail-sidebar">
+                <div class="sidebar-header">
+                    <h2>Details</h2>
+                    <button class="btn-close" id="close-detail">&times;</button>
+                </div>
+
+                <div class="detail-content" id="detail-content">
+                    <div class="detail-empty">
+                        Click on a node to see details
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend" id="legend"></div>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/config.js"></script>
+    <script src="js/data/loader.js"></script>
+    <script src="js/data/filter.js"></script>
+    <script src="js/viz/network.js"></script>
+    <script src="js/viz/renderer.js"></script>
+    <script src="js/viz/zoom.js"></script>
+    <script src="js/ui/sidebar.js"></script>
+    <script src="js/ui/search.js"></script>
+    <script src="js/ui/detail.js"></script>
+    <script src="js/ui/legend.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
