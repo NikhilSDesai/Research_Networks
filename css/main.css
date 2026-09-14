@@ -2,7 +2,7 @@
 
 :root {
     /* Colors */
-    --bg-primary: #0f172a;
+    --bg-primary: #000000;
     --bg-secondary: #1e293b;
     --bg-tertiary: #334155;
     --text-primary: #f1f5f9;
@@ -136,7 +136,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    overflow: hidden;
+    overflow-y: auto;
 }
 
 .sidebar-right {
