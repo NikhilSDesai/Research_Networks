@@ -1,1 +1,2 @@
 # Nothing to ignore - all data files are small enough now
+.venv/
