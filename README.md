@@ -4,8 +4,6 @@ Interactive web-based network visualization of research collaborations between M
 
 **Live demo:** https://nikhilsdesai.github.io/Research_Networks/
 
-<img src="images/harvard_network.png" width="600">
-
 ## Features
 
 - **Canvas-based rendering** for smooth performance with 10,000+ nodes
