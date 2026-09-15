@@ -1,4 +1,4 @@
-# MIT-Harvard Research Network Visualization
+# Boston Research Network
 
 Interactive web-based network visualization of research collaborations between MIT and Harvard faculty.
 
