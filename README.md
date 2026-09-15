@@ -2,7 +2,7 @@
 
 Interactive web-based network visualization of research collaborations between MIT and Harvard faculty.
 
-**Live demo:** https://nikhilsdesai.github.io/Research_Networks/
+**Interactive App:** https://nikhilsdesai.github.io/Research_Networks/
 
 ## Features
 
