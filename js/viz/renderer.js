@@ -94,7 +94,7 @@ const Renderer = {
     clear() {
         this.ctx.save();
         this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
-        this.ctx.fillStyle = '#0f172a'; // bg-primary
+        this.ctx.fillStyle = '#000000'; // black background
         this.ctx.fillRect(0, 0, this.width, this.height);
         this.ctx.restore();
     },
